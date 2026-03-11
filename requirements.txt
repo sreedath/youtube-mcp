@@ -1,5 +1,7 @@
-mcp[cli]
+mcp
 youtube-transcript-api
 openai
 python-dotenv
 uvicorn
+starlette
+sse-starlette

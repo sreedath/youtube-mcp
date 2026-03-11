@@ -1,0 +1,5 @@
+mcp[cli]
+youtube-transcript-api
+openai
+python-dotenv
+uvicorn

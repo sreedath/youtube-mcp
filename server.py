@@ -19,32 +19,35 @@ def get_video_transcript(video_url: str) -> str:
 
 
 @mcp.tool()
-def summarize_video(video_url: str) -> str:
+def summarize_video(video_url: str, provider: str = "openai", api_key: str = "") -> str:
     """Summarize a YouTube video in 5 concise sentences."""
     transcript = get_transcript(video_url)
     return ask_llm(
         f"Summarize the following lecture transcript in 5 concise sentences.\n\n"
-        f"Transcript:\n{transcript}"
+        f"Transcript:\n{transcript}",
+        provider, api_key,
     )
 
 
 @mcp.tool()
-def extract_key_points(video_url: str) -> str:
+def extract_key_points(video_url: str, provider: str = "openai", api_key: str = "") -> str:
     """Extract 5 key bullet points from a YouTube video."""
     transcript = get_transcript(video_url)
     return ask_llm(
         f"Extract the main key points from the following lecture transcript. "
-        f"Return 5 bullet points.\n\nTranscript:\n{transcript}"
+        f"Return 5 bullet points.\n\nTranscript:\n{transcript}",
+        provider, api_key,
     )
 
 
 @mcp.tool()
-def generate_notes(video_url: str) -> str:
+def generate_notes(video_url: str, provider: str = "openai", api_key: str = "") -> str:
     """Convert a YouTube video into structured lecture notes."""
     transcript = get_transcript(video_url)
     return ask_llm(
         f"Convert the following lecture transcript into structured lecture notes. "
-        f"Organize it with headings and short explanations.\n\nTranscript:\n{transcript}"
+        f"Organize it with headings and short explanations.\n\nTranscript:\n{transcript}",
+        provider, api_key,
     )
 
 

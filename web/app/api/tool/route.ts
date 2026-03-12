@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { tool, video_url } = await req.json();
+    const { tool, video_url, provider, api_key } = await req.json();
 
     if (!process.env.MCP_SERVER_URL) {
       return NextResponse.json(
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
 
     const result = await client.callTool({
       name: tool,
-      arguments: { video_url },
+      arguments: { video_url, provider, api_key },
     });
 
     await client.close();
